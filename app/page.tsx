@@ -1,8 +1,8 @@
-export default function Home() {
+export default function Page() {
   return (
     <main style={{ padding: "40px" }}>
       <h1>🌿 Plant Store</h1>
-      <p>Welcome to my plant shop</p>
+      <p>Site is working 🎉</p>
     </main>
   );
 }
