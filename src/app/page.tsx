@@ -1,8 +1,13 @@
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import FeaturedProducts from "../components/FeaturedProducts";
+
 export default function Page() {
   return (
-    <main style={{ padding: "40px" }}>
-      <h1>🌿 Hiiii CUtuuu Baby</h1>
-      <p>I LOVE YOUU 🎉</p>
-    </main>
+    <>
+      <Navbar />
+      <Hero />
+      <FeaturedProducts />
+    </>
   );
 }
