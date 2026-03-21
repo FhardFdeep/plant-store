@@ -1,25 +1,31 @@
-export default function ProductCard({product}:any) {
+const products = [
+  { id: 1, name: "Aloe Vera", price: 10 },
+  { id: 2, name: "Snake Plant", price: 15 },
+  { id: 3, name: "Peace Lily", price: 20 },
+];
 
+export default function FeaturedProducts() {
   return (
-    <div className="border rounded p-4 hover:shadow-xl">
+    <section style={{ padding: "40px" }}>
+      <h2>Featured Plants 🌱</h2>
 
-      <img
-        src={product.image}
-        className="h-48 w-full object-cover"
-      />
-
-      <h3 className="mt-4 font-semibold">
-        {product.name}
-      </h3>
-
-      <p className="text-green-700 font-bold">
-        ₹{product.price}
-      </p>
-
-      <button className="mt-3 bg-green-700 text-white px-4 py-2 rounded">
-        Add to Cart
-      </button>
-
-    </div>
-  )
+      <div style={{
+        display: "flex",
+        gap: "20px",
+        marginTop: "20px"
+      }}>
+        {products.map((p) => (
+          <div key={p.id} style={{
+            border: "1px solid #ccc",
+            padding: "20px",
+            borderRadius: "10px"
+          }}>
+            <h3>{p.name}</h3>
+            <p>${p.price}</p>
+            <button>Add to Cart</button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
