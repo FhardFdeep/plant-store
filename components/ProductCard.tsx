@@ -1,31 +1,55 @@
-const products = [
-  { id: 1, name: "Aloe Vera", price: 10 },
-  { id: 2, name: "Snake Plant", price: 15 },
-  { id: 3, name: "Peace Lily", price: 20 },
-];
+type Product = {
+  name: string;
+  price: number;
+  image: string;
+};
 
-export default function FeaturedProducts() {
+type ProductCardProps = {
+  product: Product;
+};
+
+export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <section style={{ padding: "40px" }}>
-      <h2>Featured Plants 🌱</h2>
+    <div style={{
+      border: "1px solid #ddd",
+      borderRadius: "12px",
+      padding: "16px",
+      width: "220px",
+      textAlign: "center",
+      boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
+    }}>
+      <img
+        src={product.image}
+        alt={product.name}
+        style={{
+          width: "100%",
+          height: "150px",
+          objectFit: "cover",
+          borderRadius: "8px"
+        }}
+      />
 
-      <div style={{
-        display: "flex",
-        gap: "20px",
-        marginTop: "20px"
-      }}>
-        {products.map((p) => (
-          <div key={p.id} style={{
-            border: "1px solid #ccc",
-            padding: "20px",
-            borderRadius: "10px"
-          }}>
-            <h3>{p.name}</h3>
-            <p>${p.price}</p>
-            <button>Add to Cart</button>
-          </div>
-        ))}
-      </div>
-    </section>
+      <h2 style={{ margin: "10px 0" }}>
+        {product.name}
+      </h2>
+
+      <p style={{ fontWeight: "bold", color: "green" }}>
+        ₹{product.price}
+      </p>
+
+      <button
+        style={{
+          marginTop: "10px",
+          padding: "8px 12px",
+          background: "black",
+          color: "white",
+          border: "none",
+          borderRadius: "6px",
+          cursor: "pointer"
+        }}
+      >
+        Add to Cart
+      </button>
+    </div>
   );
 }
